@@ -8,6 +8,7 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(${CMAKE_PROJECT_NAME}
     ${CMAKE_SOURCE_DIR}/render/main.c
+    ${CMAKE_SOURCE_DIR}/render/renderer.c
     ${CMAKE_SOURCE_DIR}/world.c
 )
 

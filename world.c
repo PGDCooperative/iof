@@ -1,9 +1,11 @@
 #include "world.h"
 #include <bits/time.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
 
-void* Loop(void* world_ptr)
+void* WorldLoop(void* world_ptr)
 {
     GWorld* world = (GWorld*)world_ptr;
 
@@ -17,7 +19,19 @@ void* Loop(void* world_ptr)
         .tv_sec = start.tv_sec - end.tv_sec};
         end = start;
 
+        world->tick++;
+
         usleep(100000);
     }
     return NULL;
+}
+
+GWorld* CreateGWorld()
+{
+    GWorld* world = calloc(1, sizeof(GWorld));
+    if (world == NULL)
+    {
+        return NULL;
+    }
+    return world;
 }
