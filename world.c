@@ -19,8 +19,12 @@ void* WorldLoop(void* world_ptr)
         .tv_sec = start.tv_sec - end.tv_sec};
         end = start;
 
-        world->tick++;
+        if (world->cmdbuffer.hasCmdOnTick[world->tick])
+        {
+            world->tick++;
+        }
 
+        printf("%ld\n", world->tick);
         usleep(100000);
     }
     return NULL;
@@ -33,5 +37,6 @@ GWorld* CreateGWorld()
     {
         return NULL;
     }
+
     return world;
 }

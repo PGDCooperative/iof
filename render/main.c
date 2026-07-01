@@ -6,12 +6,12 @@
 int main(void)
 {
     GSettings settings = {.width = 1280, .height = 720};
-    GRenderer* renderer = CreateGRenderer(settings);
+    /*GRenderer* renderer = CreateGRenderer(settings);
     if (renderer == NULL)
     {
         return 1;
     }
-    //RenderLoop(renderer);
+    //RenderLoop(renderer);*/
 
     GWorld* world = CreateGWorld();
     WorldLoop(world);

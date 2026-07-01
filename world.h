@@ -4,6 +4,8 @@
 #include "cmd.h"
 #include "components.h"
 #include "entity.h"
+#include "faction.h"
+#include "player.h"
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -13,6 +15,9 @@ typedef struct GWorld {
     uint64_t tick;
 
     GCmdBuffer cmdbuffer;
+
+    GFaction factions[MAX_PLAYERS];
+    GPlayer players[MAX_PLAYERS];
 
     uint16_t nextEntID;
     GEntity entities[MAX_ENTITIES];
